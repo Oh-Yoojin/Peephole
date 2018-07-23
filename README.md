@@ -11,18 +11,21 @@ So It is hard to get a clear guide to network design.
 
 
 ![fig1](https://github.com/Oh-Yoojin/Peephole/blob/master/image/fig1.png)
+
 Traditional network design measures accuracy by learning from train dataset about designs created by human beings.
     - It takes long time
 In new process, if network designer suggest network architecture, It predicts accruacy in just one second by using Peephole and then suggests new network.
 
 ##### Basic idea of the Peephole
 ![idea](https://github.com/Oh-Yoojin/Peephole/blob/master/image/idea.png)
+
 Puts the Long Short-Term Memory (LSTM) forms in the network structure and receives the performance of that network from the output.
 * The biggest difference from previous studies is it predicts network performance by only the network architecture itself.
 
 ##### How to convert network structure to input forms
 ##### Unified Layer Code
 ![convert](https://github.com/Oh-Yoojin/Peephole/blob/master/image/convert.png)
+
 Convert network structure to input forms: Unified Layer Code (ULC design)
 ULC assigns one label for each type of layer and add kernel size and channel number contain information about layer.
 * TY is type id
@@ -41,6 +44,7 @@ output channels : 16
 
 ##### Peephole structure
 ![structure](https://github.com/Oh-Yoojin/Peephole/blob/master/image/structure.png)
+
 The values for the network architecture are subsequently entered into LSTM and the last output determined by the value of LSTM hidden state.
 This feature value is combined with the learning epoch vector. The learning epoch vector enters the Multi-layer perceptron (MLP).
 Finally we can get the output.
@@ -49,11 +53,13 @@ Finally we can get the output.
 ##### Block-based Generation design
 Randomly layer combination is inefficient(like 3 consecutive activation layers)
 ![fig4](https://github.com/Oh-Yoojin/Peephole/blob/master/image/fig4.png)
+
 * Skeleton + generated blocks
   - One block contains less than 10 layers
   First layer is convolution layer. kernel size is random.
   - Use Markov chain for resonable layer combinations
   ![markov](https://github.com/Oh-Yoojin/Peephole/blob/master/image/markov.PNG)
+  
   - Number of convolution layers within a block is less than 4.
   - 1×1 convolution for dimension matching (for resolution problem)
 
@@ -72,11 +78,14 @@ Methods to compare.
 ![table34](https://github.com/Oh-Yoojin/Peephole/blob/master/image/table34.png)
 
 ![fig5](https://github.com/Oh-Yoojin/Peephole/blob/master/image/fig5.png)
+
 The predictions made by Peephole demonstrate notably higher correlation with the actual values than those from other methods, especially at the high-accuracy area.
 
 ##### Transfer to ImageNet
 Directly training Peephole based on ImageNet is prohibitively expensively due to the lengthy processes of training a network on ImageNet.
+
 ![table5](https://github.com/Oh-Yoojin/Peephole/blob/master/image/table5.png)
+
 Select the network architecture with the highest Peephole predicted accuracy among those in validation set for CIFAR-10, then scale it up and transfer it to ImageNet.
 
 #### Conclusion
