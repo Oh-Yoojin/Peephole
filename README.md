@@ -7,7 +7,7 @@ One of the good network is deeper network. But, Large design space spends tremen
 Another one is decide many things to design good network. For example, in CNN, what kind of layers to place in what order, how many kernel sizes and filters to each layer, how to determine learning rates, etc.
 So It is hard to get a clear guide to network design.
 
-###### In this work, they propose a new approach to this problem, predicting the performance of a network before training, based on its architecture.
+##### In this work, they propose a new approach to this problem, predicting the performance of a network before training, based on its architecture.
 
 
 ![fig1](https://github.com/Oh-Yoojin/Peephole/blob/master/image/fig1.png)
